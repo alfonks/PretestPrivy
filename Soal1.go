@@ -6,6 +6,16 @@ import (
 	"log"
 )
 
+//Print akan selalu dimulai dari index saat pertama kali angka 7 ditemukan
+
+/*Contoh sample input:
+string pertama: 2347992429
+string kedua: osindfaloknersajkdn
+
+string kedua: 7999247
+string kedua: kkdsfksmfl
+*/
+
 func main() {
 	fmt.Println(" ")
 	//pertama := "19374048" //Assign karakter petama kedalam variable
@@ -39,7 +49,6 @@ func main() {
 	fmt.Printf("String kedua = %s\n\n", kedua)
 
 	for v := range pertama { //Fungsi ini akan mencari di index keberapa angka 7 berada
-
 		temp, err := strconv.Atoi(string(pertama[v])) //Mengubah string kedalam bentuk integer yang disimpan kedalam variable temp
 		if err != nil { //Saat konversi, jika terdapat error, maka akan mengeluarkan log error
 			log.Fatal(err)
@@ -52,16 +61,16 @@ func main() {
 		}
 	}
 
-	if (flagditemukan == 1) {
+	if (flagditemukan == 1) { //jika angka 7 ditemukan
 		fmt.Printf("Angka 7 berhasil ditemukan di index ke-%d\n", indexof7)
 
-		if (indexof7 > len(kedua)) {
+		if (indexof7 > len(kedua)) { //jika index angka 7 ditemukan lebih besar dari panjang string kedua
 			fmt.Println("String kedua tidak dapat diprint karena index angka 7 ditemukan lebih besar dari panjang string kedua")
-		} else {
+		} else { //jika index angka 7 ditemukan lebih kecil dari panjang string kedua
 			fmt.Printf("String dari index angka 7 ditemukan sampai akhir = %s\n", kedua[indexof7:len(kedua)]) //Mengeprint karakter dari indexof7 sampai akhir
 		}
 
-	} else {
+	} else { //jika angka 7 tidak ditemukan
 		fmt.Printf("Angka 7 tidak ditemukan didalam string pertama\n")
 	}
 
